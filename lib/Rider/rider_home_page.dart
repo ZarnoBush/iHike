@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hike/Colors/app_colors.dart';
 import 'package:hike/Controllers/date_time_controller.dart';
 import 'package:hike/Controllers/fetch_travels_controller.dart';
@@ -25,7 +26,10 @@ class RiderHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Rider"),
+        title: Text("Rider", style: GoogleFonts.albertSans(
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),),
       ),
       drawer: CustomDrawer(
         loginController: _loginController,
@@ -184,7 +188,7 @@ class CustomDrawer extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     username!,
-                    style: TextStyle(
+                    style: GoogleFonts.albertSans(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -196,7 +200,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.home, color: color),
-            title: Text("Home", style: TextStyle(color: color),),
+            title: Text("Home", style: GoogleFonts.albertSans(color: color),),
             onTap: () {
               Get.back();
               Get.toNamed(homePage!);
@@ -204,7 +208,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.list_alt_rounded, color: color),
-            title: Text("Requests", style: TextStyle(color: color),),
+            title: Text("Requests", style: GoogleFonts.albertSans(color: color),),
             onTap: () {
               Get.back();
               Get.toNamed(travelPage!);
@@ -212,7 +216,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.person, color: color),
-            title: Text("Profile", style: TextStyle(color: color)),
+            title: Text("Profile", style: GoogleFonts.albertSans(color: color)),
             onTap: () {
               Get.back();
               Get.toNamed(profilePage!);
@@ -221,7 +225,7 @@ class CustomDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.logout, color: color,),
-            title: Text("Logout", style: TextStyle(color: color)),
+            title: Text("Logout", style: GoogleFonts.albertSans(color: color)),
             onTap: _loginController.logout,
           ),
         ],

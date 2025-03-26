@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hike/Controllers/login_controller.dart';
 import 'package:hike/Widgets/custom_button.dart';
 
@@ -43,17 +44,17 @@ class RiderLoginPage extends StatelessWidget {
                   children: [
                     Text(
                       'Welcome Rider!',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: GoogleFonts.albertSans(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
                     ),
                     Text(
                       'Continue by Login to your account.',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: GoogleFonts.albertSans(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
                     ),
                   ],
                 ),
@@ -88,10 +89,10 @@ class RiderLoginPage extends StatelessWidget {
                 ),
                 Text(
                   'OR',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: GoogleFonts.albertSans(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
                 ),
                 SizedBox(
                   height: 20,
@@ -101,19 +102,21 @@ class RiderLoginPage extends StatelessWidget {
                   children: [
                     Text(
                       'Don\'t have an account? ',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w200,
-                      ),
+                      style: GoogleFonts.albertSans(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w200,
+                    ),
                     ),
                     InkWell(
                       onTap: () => Get.toNamed('/rider_signup'),
                       child: Text(
                         'Sign Up here',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue),
+                        style: GoogleFonts.albertSans(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                      fontStyle: FontStyle.italic
+                    ),
                       ),
                     ),
                   ],

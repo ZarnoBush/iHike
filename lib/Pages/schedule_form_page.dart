@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hike/Controllers/date_time_controller.dart';
 import 'package:hike/Controllers/travel_post_controller.dart';
 import 'package:hike/Fonts/app_Fonts.dart';
@@ -16,7 +17,13 @@ class ScheduleFormPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Schedule Form'),
+        title: Text(
+          'Schedule Form',
+          style: GoogleFonts.albertSans(
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -38,13 +45,19 @@ class ScheduleFormPage extends StatelessWidget {
             // ),
             SizedBox(height: 10),
             Text(
-                  'Enter Ride Information',
-                  style: AppFonts.poppins_w700
-                ),
-                Text(
-                  'Please enter the ride information below.',
-                  style: AppFonts.poppins_w400
-                ),
+              'Enter Ride Information',
+              style: GoogleFonts.albertSans(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Text(
+              'Please enter the ride information below.',
+              style: GoogleFonts.albertSans(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
             SizedBox(height: 30),
             CustomTextField(
               controller: travelPostController.pickupController,
@@ -102,7 +115,10 @@ class ScheduleFormPage extends StatelessWidget {
                         "${controller.selectedDate.value.toLocal()}"
                             .split(' ')[0]
                             .toString(),
-                        style: AppFonts.poppins_400
+                        style: GoogleFonts.albertSans(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
                       )),
                   InkWell(
                     child: CircleAvatar(
@@ -131,7 +147,10 @@ class ScheduleFormPage extends StatelessWidget {
                         "${controller.selectedTime.value}"
                             .split(' ')[0]
                             .toString(),
-                        style: AppFonts.poppins_400
+                        style: GoogleFonts.albertSans(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
                       )),
                   InkWell(
                     child: CircleAvatar(

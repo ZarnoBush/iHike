@@ -28,68 +28,89 @@ class DriverInformationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ride Information"),
+        title: Text(
+          "Ride Information",
+          style: GoogleFonts.albertSans(
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
       ),
       body: Column(
-          children: [
-            Expanded(
-              child: CustomImageInfo(username: username,),
+        children: [
+          Expanded(
+            child: CustomImageInfo(
+              username: username,
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListView(
-                  children: [
-                    Text(
-                      'Ride Information',
-                      style: AppFonts.poppins_w700
-                    ),
-                    Text(
-                      'See Ride information below. User $travel_id',
-                      style: AppFonts.poppins_w400
-                    ),
-                    SizedBox(height: 10),
-                    CustomRideDetails(
-                      textOne: 'Current Location:',
-                      textTwo: fromText,
-                    ),
-                    SizedBox(height: 10),
-                    CustomRideDetails(
-                      textOne: 'Destination:',
-                      textTwo: toText,
-                    ),
-                    SizedBox(height: 10),
-                    CustomRideDetails(
-                      textOne: 'Date and Time:',
-                      textTwo: timeDateText,
-                    ),
-                    SizedBox(height: 10),
-                    CustomRideDetails(
-                      textOne: 'Description:',
-                      textTwo: 'DescriptionPlaceHolder',
-                    ),
-                    SizedBox(height: 20),
-                    // CustomTextField(
-                    //   controller: travelPostController.dropoffController,
-                    //   isPassword: false,
-                    //   textHolder: 'Enter Description',
-                    // ),
-                    InkWell(
-                      onTap: () => bookingsController.createBooking(travel_id),
-                      child: CustomButton(
-                        textHolder: 'Book Ride',
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView(
+                children: [
+                  Text('Ride Information', style: GoogleFonts.albertSans(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  )),
+                  Text('See Ride information below. User $travel_id',
+                      style: GoogleFonts.albertSans(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  )),
+                  SizedBox(height: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(4)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          CustomRideDetails(
+                            iconData: Icons.person_pin,
+                            textOne: 'Current Location:',
+                            textTwo: fromText,
+                          ),
+                          SizedBox(height: 10),
+                          CustomRideDetails(
+                            iconData: Icons.location_pin,
+                            textOne: 'Destination:',
+                            textTwo: toText,
+                          ),
+                          SizedBox(height: 10),
+                          CustomRideDetails(
+                            iconData: Icons.access_time,
+                            textOne: 'Date and Time:',
+                            textTwo: timeDateText,
+                          ),
+                          SizedBox(height: 10),
+                          CustomRideDetails(
+                            iconData: Icons.description_rounded,
+                            textOne: 'Description:',
+                            textTwo: 'DescriptionPlaceHolder',
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 20),
+                  // CustomTextField(
+                  //   controller: travelPostController.dropoffController,
+                  //   isPassword: false,
+                  //   textHolder: 'Enter Description',
+                  // ),
+                  InkWell(
+                    onTap: () => bookingsController.createBooking(travel_id),
+                    child: CustomButton(
+                      textHolder: 'Book Ride',
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
     );
   }
 }
-
-
-
-

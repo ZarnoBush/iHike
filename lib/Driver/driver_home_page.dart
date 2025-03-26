@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hike/Colors/app_colors.dart';
 import 'package:hike/Controllers/fetch_travels_controller.dart';
 import 'package:hike/Controllers/login_controller.dart';
@@ -20,7 +21,10 @@ class DriverHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Driver")),
+      appBar: AppBar(title: Text("Driver", style: GoogleFonts.albertSans(
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),)),
       drawer: CustomDrawer(
         loginController: _loginController,
         username: _loginController.fullName.toString(),
@@ -118,7 +122,7 @@ class DriverHomePage extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                Icon(Icons.safety_divider_rounded),
+                                Icon(Icons.safety_divider_rounded, color: Colors.white,),
                                 SizedBox(
                                   width: 5,
                                 ),

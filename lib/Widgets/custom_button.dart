@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           textHolder!,
-          style: AppFonts.poppins_700
+          style: AppFonts.albert_400
         ),
       )),
     );

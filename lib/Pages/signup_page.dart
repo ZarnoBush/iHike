@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hike/Controllers/registration_controller.dart';
 import 'package:hike/Utils/loader.dart';
 import 'package:hike/Widgets/custom_button.dart';
@@ -28,14 +29,14 @@ class RiderSignupPage extends StatelessWidget {
                   children: [
                     Text(
                       'Welcome Rider!',
-                      style: TextStyle(
+                      style: GoogleFonts.albertSans(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
                     Text(
                       'Let\'s get started by creating a new account.',
-                      style: TextStyle(
+                      style: GoogleFonts.albertSans(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                       ),
@@ -142,9 +143,9 @@ class RiderSignupPage extends StatelessWidget {
                 ),
                 Text(
                   'OR',
-                  style: TextStyle(
+                  style: GoogleFonts.albertSans(
                     fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 SizedBox(
@@ -155,20 +156,19 @@ class RiderSignupPage extends StatelessWidget {
                   children: [
                     Text(
                       'Already have an account? ',
-                      style: TextStyle(
+                      style: GoogleFonts.albertSans(
                         fontSize: 14,
                         fontWeight: FontWeight.w200,
                       ),
                     ),
                     InkWell(
                       onTap: () => Get.toNamed('/rider_login'),
-                      child: Text(
-                        'Log In here',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue),
-                      ),
+                      child: Text('Log In here',
+                          style: GoogleFonts.albertSans(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              fontStyle: FontStyle.italic,
+                              color: Colors.black)),
                     ),
                   ],
                 )

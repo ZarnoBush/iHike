@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomImageInfo extends StatelessWidget {
   String? username;
@@ -22,54 +23,53 @@ class CustomImageInfo extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 2.0, right: 2.0, bottom: 8.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   username!,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: GoogleFonts.albertSans(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              
+                Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [ 
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 2),
+                  border: Border.all(color: Colors.blue, width: 2),
                   shape: BoxShape.circle,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(
                     Icons.message,
-                    color: Colors.black,
+                    color: Colors.blue,
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              SizedBox(width: 20),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 2),
+                  border: Border.all(color: Colors.green, width: 2),
                   shape: BoxShape.circle,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(
                     Icons.call,
-                    color: Colors.black,
+                    color: Colors.green,
                   ),
                 ),
               ),
+              SizedBox(width: 10),
             ],
           ),
-          SizedBox(height: 10,)
+              ],
+            ),
+          ),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 class CustomLogo extends StatelessWidget {
   const CustomLogo({
     super.key,
@@ -13,8 +14,8 @@ class CustomLogo extends StatelessWidget {
         Text.rich(
           TextSpan(
               text: 'i',
-              style: TextStyle(
-                fontSize: 28,
+              style: GoogleFonts.satisfy(
+                fontSize: 38,
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
               ),
@@ -24,7 +25,7 @@ class CustomLogo extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
-                        fontSize: 40)),
+                        fontSize: 50)),
               ]),
         ),
         Icon(

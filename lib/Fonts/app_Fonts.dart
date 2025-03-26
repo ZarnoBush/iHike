@@ -19,4 +19,8 @@ class AppFonts {
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle albert_400 = GoogleFonts.albertSans(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+  );
 }

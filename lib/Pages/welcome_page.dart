@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hike/Fonts/app_Fonts.dart';
 import 'package:hike/Widgets/custom_logo.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -26,15 +28,15 @@ class WelcomePage extends StatelessWidget {
                   ),
                   Text(
                     'Welcome to iHike',
-                    style: TextStyle(
-                      fontSize: 20,
+                    style: GoogleFonts.caveat(
+                      fontSize: 24,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   Text(
                     'Thanks for choosing us! We are happy to have you on board. Choose your User access below and get started on your journey!',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: GoogleFonts.albertSans(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                     ),
@@ -54,12 +56,12 @@ class WelcomePage extends StatelessWidget {
                       onTap: () => Get.toNamed('/rider_login'),
                       child: Container(
                         decoration: BoxDecoration(
-                            border: Border.all(),
+                            border: Border.all(color: Colors.white),
                             borderRadius: BorderRadius.circular(4)),
                         child: Center(
                             child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Get Started', style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),),
+                          child: Text('Get Started', style: AppFonts.albert_400,),
                         )),
                       ),
                     ),

@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hike/Fonts/app_Fonts.dart';
+
 class CustomText extends StatelessWidget {
   CustomText({
     required this.text,
@@ -15,7 +16,10 @@ class CustomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text!,
-      style: AppFonts.poppins_400
+      style: GoogleFonts.albertSans(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),
     );
   }
 }
@@ -25,25 +29,29 @@ class CustomRideDetails extends StatelessWidget {
     super.key,
     required this.textOne,
     required this.textTwo,
+    this.iconData
   });
 
   String? textOne;
   String? textTwo;
+  IconData? iconData;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          textOne ?? 'ToPlaceHolder',
-          style: AppFonts.poppins_700
-        ),
-        Text(
-          textTwo ?? 'FromPlaceHolder',
-          style: AppFonts.poppins_400
-        ),
-      ],
+    return Container(
+      child: Row(
+        children: [
+          Icon(iconData, color: Colors.black,),
+          SizedBox(width: 10,),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(textOne ?? 'ToPlaceHolder', style: GoogleFonts.albertSans(fontSize: 14, fontWeight: FontWeight.w700, color: Colors.black)),
+              Text(textTwo ?? 'FromPlaceHolder', style: GoogleFonts.albertSans(fontSize: 14, color: Colors.black)),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

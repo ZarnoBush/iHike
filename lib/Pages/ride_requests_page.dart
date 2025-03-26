@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hike/Colors/app_colors.dart';
 import 'package:hike/Controllers/bookings_controller.dart';
 import 'package:hike/Controllers/login_controller.dart';
@@ -19,12 +20,23 @@ class RideRequestsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Ride Requests")),
-      drawer: CustomDrawer(
-        loginController: loginController,
-        username: loginController.fullName.toString(),
-        homePage: '/driver_home_page',
-        travelPage: '/request_page',
+      appBar: AppBar(
+          title: Text(
+        "Ride Requests",
+        style: GoogleFonts.albertSans(
+          fontSize: 18,
+          fontWeight: FontWeight.w400,
+        ),
+      )),
+      drawer: Obx(
+        () => CustomDrawer(
+          loginController: loginController,
+          username: loginController.fullName.toString(),
+          homePage: loginController.role.value == "Driver"
+              ? '/driver_home_page'
+              : '/rider_home_page',
+          travelPage: '/request_page',
+        ),
       ),
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: bookingsController.fetchBookingsForScheduler(),
@@ -51,20 +63,21 @@ class RideRequestsPage extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: ExpansionTile(
-                  backgroundColor: AppColors.primary,
+                  backgroundColor: AppColors.background,
                   collapsedIconColor: AppColors.text,
                   title: Text(
                     "${group["drop_off_location"]}",
-                    style: TextStyle(
+                    style: GoogleFonts.albertSans(
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                         color: AppColors.text),
                   ),
                   children: group["bookings"].map<Widget>((booking) {
                     return InkWell(
                       onTap: () => Get.defaultDialog(
                         title: 'Accept Request',
-                        titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                        titleStyle: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w500),
                         content: Column(
                           children: [
                             CustomDialogContent(
@@ -143,12 +156,12 @@ class RideRequestsPage extends StatelessWidget {
                                     //   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                                     // ),
                                     Text('${booking['pick_up_location']}',
-                                        style: TextStyle(
+                                        style: GoogleFonts.albertSans(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
                                             color: Colors.black)),
                                     Text('${booking['drop_off_location']}',
-                                        style: TextStyle(
+                                        style: GoogleFonts.albertSans(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
                                             color: Colors.black)),
@@ -161,7 +174,7 @@ class RideRequestsPage extends StatelessWidget {
                                 Icon(Icons.safety_divider_rounded),
                                 SizedBox(width: 5),
                                 Text('${booking['number_of_passengers']}',
-                                    style: TextStyle(
+                                    style: GoogleFonts.albertSans(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black))
@@ -206,9 +219,13 @@ class CustomDialogContent extends StatelessWidget {
             children: [
               Text(
                 '$titleText :',
-                style: TextStyle(color: Colors.black),
+                style: GoogleFonts.albertSans(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700),
               ),
-              Text(subText!, style: TextStyle(color: Colors.black)),
+              Text(subText!,
+                  style: GoogleFonts.albertSans(color: Colors.black)),
             ],
           )
         ],
