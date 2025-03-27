@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:hike/Colors/app_colors.dart';
 import 'package:hike/Driver/driver_home_page.dart';
+import 'package:hike/Firebase/firebase_messaging.dart';
 import 'package:hike/Pages/login_page.dart';
 import 'package:hike/Pages/ride_requests_page.dart';
 import 'package:hike/Pages/schedule_form_page.dart';
@@ -13,10 +15,13 @@ import 'package:hike/Utils/my_http_overrides.dart';
 import 'package:hike/Pages/splash_screen.dart';
 import 'package:hike/Pages/welcome_page.dart';
 import 'package:hike/Rider/rider_home_page.dart';
+import 'package:hike/firebase_options.dart';
 
 void main(List<String> args) async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  setupFirebaseMessaging();
   await GetStorage.init(); // Initialize GetStorage
   runApp(HikeApp());
 }

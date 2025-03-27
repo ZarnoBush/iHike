@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "63500367623",
+    "project_id": "ihike-f7f16",
+    "storage_bucket": "ihike-f7f16.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63500367623:android:9c416dac204c78d5ce37a2",
+        "android_client_info": {
+          "package_name": "com.example.hike"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwAM7XABszCDz9tIp5mHtFTo2ipDFIGvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
