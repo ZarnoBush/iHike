@@ -30,6 +30,7 @@ class DriverHomePage extends StatelessWidget {
         username: _loginController.fullName.toString(),
         homePage: '/driver_home_page',
         travelPage: '/request_page',
+        despatchPage: '/despatch_page',
       ),
       floatingActionButton: FloatingActionButton(
         mini: true,

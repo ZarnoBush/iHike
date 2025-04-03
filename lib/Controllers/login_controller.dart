@@ -10,6 +10,7 @@ class LoginController extends GetxController {
   var isAuthenticated = false.obs;
   var fullName = "".obs;
   var role = "".obs; // Make role observable
+  var user_id = 0.obs;
 
   @override
   void onInit() {
@@ -25,15 +26,18 @@ class LoginController extends GetxController {
   Future<void> loadUserRole() async {
     String? token = await _authService.getToken();
     String? storedRole = await storage.read(key: "role");
+    String? id = await storage.read(key: "user_id");
 
     print("Stored Role: $storedRole"); // Debugging Line
 
     if (token != null) {
       isAuthenticated.value = true;
       role.value = storedRole ?? ""; // Ensure role updates if user is logged in
+      user_id.value = int.parse(id!);
     } else {
       isAuthenticated.value = false;
       role.value = ""; // Clear role if no token is found
+      user_id.value = 0;
     }
   }
 
@@ -73,9 +77,10 @@ class LoginController extends GetxController {
       String? storedRole = await storage.read(key: "role");
 
       String? name = await storage.read(key: "fullname");
+      String? id = await storage.read(key: "user_id");
 
       print("Logged in as: $storedRole"); // Debugging
-
+      user_id.value = int.parse(id!);
       fullName.value = name ?? "";
       role.value = storedRole ?? ""; // ✅ Ensure role updates before navigation
 
@@ -100,8 +105,9 @@ class LoginController extends GetxController {
     String? token = await _authService.getToken();
     String? storedRole = await storage.read(key: "role");
     String? name = await storage.read(key: "fullname");
+    String? id = await storage.read(key: "user_id");
 
-    print("Token: $token, Role: $role, Fullname: $name");
+    print("Token: $token, Role: $role, Fullname: $name, User ID: $id");
 
     if (token != null) {
       isAuthenticated.value = true;

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hike/Colors/app_colors.dart';
 import 'package:hike/Controllers/bookings_controller.dart';
+import 'package:hike/Controllers/despatch_controller.dart';
 import 'package:hike/Controllers/login_controller.dart';
 import 'package:hike/Controllers/travel_post_controller.dart';
 import 'package:hike/Pages/ride_information_page.dart';
@@ -16,6 +17,7 @@ class RideRequestsPage extends StatelessWidget {
       Get.put(TravelPostController());
   final LoginController loginController = Get.put(LoginController());
   final BookingsController bookingsController = Get.put(BookingsController());
+  final DespatchController despatchController = Get.put(DespatchController());
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class RideRequestsPage extends StatelessWidget {
               ? '/driver_home_page'
               : '/rider_home_page',
           travelPage: '/request_page',
+          despatchPage: '/despatch_page',
         ),
       ),
       body: FutureBuilder<List<Map<String, dynamic>>>(
@@ -125,8 +128,19 @@ class RideRequestsPage extends StatelessWidget {
                         confirm: Padding(
                           padding:
                               const EdgeInsets.only(left: 12.0, bottom: 8.0),
-                          child: Text('Accept',
-                              style: TextStyle(color: Colors.green)),
+                          child: InkWell(
+                            onTap: () {
+                              despatchController.dispatchRide(
+                                  booking['booking_id'],
+                                  loginController.user_id.value);
+                              print('Accept Pressed');
+                              print('Booking ID: ${booking['booking_id']}');
+                              print(
+                                  'User ID: ${loginController.user_id.value}');
+                            },
+                            child: Text('Accept',
+                                style: TextStyle(color: Colors.green)),
+                          ),
                         ),
                       ),
                       child: Container(
