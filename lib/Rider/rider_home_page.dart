@@ -36,7 +36,6 @@ class RiderHomePage extends StatelessWidget {
         username: _loginController.fullName.toString(),
         homePage: '/rider_home_page',
         travelPage: '/request_page',
-        despatchPage: '/despatch_page',
       ),
       floatingActionButton: FloatingActionButton(
         mini: true,
@@ -77,6 +76,7 @@ class RiderHomePage extends StatelessWidget {
                             travelPostController.travelId.value.toString(),
                         fromText: travel['travel_pick_up'],
                         toText: travel['travel_drop_off'],
+                        passenger: travel['travel_passengers'],
                         timeDateText:
                             '${travel['travel_date']} | ${travel['travel_time']}',
                       ));
@@ -155,7 +155,6 @@ class CustomDrawer extends StatelessWidget {
     this.username,
     required this.homePage,
     this.travelPage,
-    this.despatchPage,
     this.profilePage,
   }) : _loginController = loginController;
 
@@ -163,7 +162,6 @@ class CustomDrawer extends StatelessWidget {
   String? username;
   String? homePage;
   String? travelPage;
-  String? despatchPage;
   String? profilePage;
   Color color = AppColors.text;
 
@@ -215,14 +213,6 @@ class CustomDrawer extends StatelessWidget {
             onTap: () {
               Get.back();
               Get.toNamed(travelPage!);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.time_to_leave_rounded, color: color),
-            title: Text("Despatch", style: GoogleFonts.albertSans(color: color),),
-            onTap: () {
-              Get.back();
-              Get.toNamed(despatchPage!);
             },
           ),
           ListTile(

@@ -30,7 +30,6 @@ class DriverHomePage extends StatelessWidget {
         username: _loginController.fullName.toString(),
         homePage: '/driver_home_page',
         travelPage: '/request_page',
-        despatchPage: '/despatch_page',
       ),
       floatingActionButton: FloatingActionButton(
         mini: true,
@@ -75,6 +74,7 @@ class DriverHomePage extends StatelessWidget {
                             travelPostController.travelId.value.toString(),
                         fromText: travel['travel_pick_up'],
                         toText: travel['travel_drop_off'],
+                        passengers: travel['travel_passengers'],
                         timeDateText:
                             '${travel['travel_date']} | ${travel['travel_time']}',
                       ));

@@ -7,7 +7,6 @@ import 'package:get_storage/get_storage.dart';
 import 'package:hike/Colors/app_colors.dart';
 import 'package:hike/Driver/driver_home_page.dart';
 import 'package:hike/Firebase/firebase_messaging.dart';
-import 'package:hike/Pages/depatch_page.dart';
 import 'package:hike/Pages/login_page.dart';
 import 'package:hike/Pages/ride_requests_page.dart';
 import 'package:hike/Pages/schedule_form_page.dart';
@@ -84,10 +83,6 @@ class HikeApp extends StatelessWidget {
         GetPage(
           name: '/request_page',
           page: () => RideRequestsPage(),
-        ),
-        GetPage(
-          name: '/despatch_page',
-          page: () => DepatchPage(),
         ),
       ],
     );

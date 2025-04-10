@@ -11,13 +11,14 @@ import 'package:hike/Widgets/custom_image.dart';
 import 'package:hike/Widgets/custom_widgets.dart';
 
 class DriverInformationPage extends StatelessWidget {
-  String? travel_id, username, fromText, toText, timeDateText, descriptionText;
+  String? travel_id, username, fromText, toText, passengers, timeDateText, descriptionText;
   DriverInformationPage(
       {super.key,
       this.travel_id,
       this.username,
       required this.fromText,
       required this.toText,
+      required this.passengers,
       required this.timeDateText,
       this.descriptionText});
   final TravelPostController travelPostController =
@@ -80,6 +81,12 @@ class DriverInformationPage extends StatelessWidget {
                           SizedBox(height: 10),
                           CustomRideDetails(
                             iconData: Icons.access_time,
+                            textOne: 'Passengers:',
+                            textTwo: passengers,
+                          ),
+                          SizedBox(height: 10),
+                          CustomRideDetails(
+                            iconData: Icons.access_time,
                             textOne: 'Date and Time:',
                             textTwo: timeDateText,
                           ),
@@ -100,7 +107,8 @@ class DriverInformationPage extends StatelessWidget {
                   //   textHolder: 'Enter Description',
                   // ),
                   InkWell(
-                    onTap: () => bookingsController.createBooking(travel_id),
+                    onTap: () => bookingsController.createBooking(travel_id, 
+                        fromText, toText, passengers),
                     child: CustomButton(
                       textHolder: 'Book Ride',
                     ),

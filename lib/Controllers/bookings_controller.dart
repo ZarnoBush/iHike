@@ -84,7 +84,7 @@ class BookingsController extends GetxController {
     }
   }
 
-  Future<void> createBooking(String? travel_id) async {
+  Future<void> createBooking(String? travel_id, String? pickup, String? dropoff, String? passengers) async {
     String? user_id = await storage.read(key: "user_id");
     // String? travel_id = await storage.read(key: "travel_identity");
 
@@ -103,9 +103,9 @@ class BookingsController extends GetxController {
     }, body: {
       "travel_id": travel_id,
       "user_id": user_id,
-      "pick_up_location": pickupController.text,
-      "drop_off_location": dropoffController.text,
-      "number_of_passengers": passengersController.text,
+      "pick_up_location": pickup,
+      "drop_off_location": dropoff,
+      "number_of_passengers": passengers,
     });
 
     if (response.statusCode == 200) {

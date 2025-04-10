@@ -38,7 +38,6 @@ class RideRequestsPage extends StatelessWidget {
               ? '/driver_home_page'
               : '/rider_home_page',
           travelPage: '/request_page',
-          despatchPage: '/despatch_page',
         ),
       ),
       body: FutureBuilder<List<Map<String, dynamic>>>(
