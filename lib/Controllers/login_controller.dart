@@ -50,6 +50,7 @@ class LoginController extends GetxController {
     fullName.value = name ?? "Default Name";
   }
 
+
   void userLoginVerify() {
     if (phoneNumberController.text.isEmpty) {
       Get.snackbar('Error', 'Phone number cannot be empty',
@@ -83,6 +84,7 @@ class LoginController extends GetxController {
       user_id.value = int.parse(id!);
       fullName.value = name ?? "";
       role.value = storedRole ?? ""; // ✅ Ensure role updates before navigation
+      
 
       isAuthenticated.value = true; // ✅ Set authentication flag
       if (storedRole == "Driver") {

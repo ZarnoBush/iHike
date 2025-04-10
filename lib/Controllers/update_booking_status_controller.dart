@@ -2,22 +2,22 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-class DespatchController extends GetxController{
+class UpdateBookingStatusController extends GetxController{
 
-  Future<void> dispatchRide(int bookingId, int driverId) async {
+  Future<void> updateBookingStatus(int bookingId, String status) async {
   // Replace with your actual PHP file URL
   final String baseUrl = "https://localhost/flutter/ihike";
-  print('Driver ID from desptchController: $driverId');
+  print('Status from desptchController: $status');
   print('Booking ID from desptchController: $bookingId');
 
   try {
     var response = await http.post(
-      Uri.parse('$baseUrl/despatch.php'),
+      Uri.parse('$baseUrl/booking_status_update.php'),
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",},
       body: {
         'booking_id': bookingId.toString(),
-        'driver_id': driverId.toString(),
+        'status': status,
       },
     );
 
@@ -33,7 +33,7 @@ class DespatchController extends GetxController{
 }
 
 // Example usage
-void onAcceptRide(int bookingId, int driverId) {
-  dispatchRide(bookingId, driverId);
+void onAcceptRide(int bookingId, String status) {
+  updateBookingStatus(bookingId, status);
 }
 }

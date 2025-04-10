@@ -51,7 +51,7 @@ class BookingsController extends GetxController {
     final response = await http.get(
       Uri.parse("$baseUrl/fetch_bookings.php?scheduler_id=$schedulerId"),
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "applicati on/x-www-form-urlencoded",
       },
     );
 
@@ -64,17 +64,19 @@ class BookingsController extends GetxController {
       // Group bookings by drop-off location
       var grouped = <String, List<Map<String, dynamic>>>{};
       for (var booking in bookings) {
-        String dropOff = "${booking["travel_destination"]} | ${booking["travel_times"]}" ?? "Unknown";
+        String dropOff =
+            "${booking["travel_destination"]} | ${booking["travel_times"]}" ??
+                "Unknown";
         grouped.putIfAbsent(dropOff, () => []).add(booking);
       }
 
-       // Convert grouped map into a list of maps
-    List<Map<String, dynamic>> groupedList = grouped.entries.map((entry) {
-      return {
-        "drop_off_location": entry.key,
-        "bookings": entry.value,
-      };
-    }).toList();
+      // Convert grouped map into a list of maps
+      List<Map<String, dynamic>> groupedList = grouped.entries.map((entry) {
+        return {
+          "drop_off_location": entry.key,
+          "bookings": entry.value,
+        };
+      }).toList();
       return groupedList;
     } else {
       print("Error fetching bookings: ${response.body}");

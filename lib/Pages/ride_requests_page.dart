@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hike/Colors/app_colors.dart';
 import 'package:hike/Controllers/bookings_controller.dart';
-import 'package:hike/Controllers/despatch_controller.dart';
+import 'package:hike/Controllers/update_booking_status_controller.dart';
 import 'package:hike/Controllers/login_controller.dart';
 import 'package:hike/Controllers/travel_post_controller.dart';
 import 'package:hike/Pages/ride_information_page.dart';
@@ -17,7 +17,7 @@ class RideRequestsPage extends StatelessWidget {
       Get.put(TravelPostController());
   final LoginController loginController = Get.put(LoginController());
   final BookingsController bookingsController = Get.put(BookingsController());
-  final DespatchController despatchController = Get.put(DespatchController());
+  final UpdateBookingStatusController despatchController = Get.put(UpdateBookingStatusController());
 
   @override
   Widget build(BuildContext context) {
@@ -120,9 +120,23 @@ class RideRequestsPage extends StatelessWidget {
                         cancel: Padding(
                           padding:
                               const EdgeInsets.only(right: 12.0, bottom: 8.0),
-                          child: Text(
-                            'Cancel',
-                            style: TextStyle(color: Colors.red),
+                          child: InkWell(
+                            onTap: () {
+                              despatchController.updateBookingStatus(
+                                  booking['booking_id'], 'Cancelled');
+                              // Cancel the ride
+                              
+                              print('Accept Pressed');
+                              print('Booking ID: ${booking['booking_id']}');
+                              print(
+                                  'User ID: ${loginController.user_id.value}');
+                              print(
+                                  'Booking Status: ${booking['status']}');
+                            },
+                            child: Text(
+                              'Cancel',
+                              style: TextStyle(color: Colors.red),
+                            ),
                           ),
                         ),
                         confirm: Padding(
@@ -130,13 +144,15 @@ class RideRequestsPage extends StatelessWidget {
                               const EdgeInsets.only(left: 12.0, bottom: 8.0),
                           child: InkWell(
                             onTap: () {
-                              despatchController.dispatchRide(
-                                  booking['booking_id'],
-                                  loginController.user_id.value);
+                              despatchController.updateBookingStatus(
+                                  booking['booking_id'], 'Dispatched');
+                              // Accept the ride
                               print('Accept Pressed');
                               print('Booking ID: ${booking['booking_id']}');
                               print(
                                   'User ID: ${loginController.user_id.value}');
+                              print(
+                                  'Booking Status: ${booking['status']}');
                             },
                             child: Text('Accept',
                                 style: TextStyle(color: Colors.green)),
@@ -169,6 +185,17 @@ class RideRequestsPage extends StatelessWidget {
                                     //   '${booking['booker_name']}',
                                     //   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                                     // ),
+                                    Text('${booking['status']}',
+                                        style: GoogleFonts.albertSans(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color:
+                                                booking['status'] == "Pending"
+                                                    ? Colors.orange
+                                                    : booking['status'] ==
+                                                            "Dispatched"
+                                                        ? Colors.blue
+                                                        : Colors.red)),
                                     Text('${booking['pick_up_location']}',
                                         style: GoogleFonts.albertSans(
                                             fontSize: 14,
