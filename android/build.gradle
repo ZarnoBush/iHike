@@ -1,6 +1,13 @@
 buildscript {
+    repositories {
+        google()  // Add this to allow Gradle to resolve the Google services plugin
+        mavenCentral() // Maven Central is fine for other dependencies
+        jcenter() // Add JCenter as an additional repository
+    }
+
     dependencies {
-        classpath 'com.google.gms:google-services:4.3.15' // Ensure latest version
+        classpath 'com.android.tools.build:gradle:8.1.2'  // Use your current version of Gradle plugin
+        classpath 'com.google.gms:google-services:4.3.15'  // Make sure this line is present
     }
 }
 
@@ -8,6 +15,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        jcenter() // Add JCenter as an additional repository
     }
 }
 

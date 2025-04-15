@@ -10,6 +10,8 @@ class RegistrationController extends GetxController {
   late TextEditingController fullnameController,
       phoneNumberController,
       passwordController;
+  final String baseUrl = "http://192.168.1.5/ihike";
+  final String externalUrl = "http://192.168.1.5/ihike";
   var selectedRole = "Rider";
   var selectedGender = "Male";
   var isLoading = false.obs;
@@ -51,7 +53,7 @@ class RegistrationController extends GetxController {
 
   Future<void> registerUser() async {
     isLoading.value = true;
-    var url = Uri.parse('https://localhost/flutter/ihike/signin.php');
+    var url = Uri.parse('$externalUrl/signin.php');
 
     var response = await http.post(url, body: {
       'fullname': fullnameController.text,

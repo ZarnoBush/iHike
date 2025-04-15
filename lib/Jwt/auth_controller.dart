@@ -6,11 +6,12 @@ import 'package:http/http.dart' as http;
 
 class AuthService {
   final String baseUrl = "https://localhost/flutter/ihike";
+  final String externalUrl = "http://192.168.1.5/ihike";
   final storage = const FlutterSecureStorage();
 
   Future<String?> login(String contact, String password) async {
     final response = await http.post(
-      Uri.parse("$baseUrl/login.php"),
+      Uri.parse("$externalUrl/login.php"),
       headers: {"Content-Type": "application/x-www-form-urlencoded"},
       body: {"contact": contact, "password": password},
     );
