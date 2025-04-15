@@ -10,8 +10,8 @@ class RegistrationController extends GetxController {
   late TextEditingController fullnameController,
       phoneNumberController,
       passwordController;
-  final String baseUrl = "http://192.168.1.5/ihike";
-  final String externalUrl = "http://192.168.1.5/ihike";
+  final String baseUrl = "https://localhost/flutter/ihike";
+  final String externalUrl = "http://192.168.1.97/flutter/ihike";
   var selectedRole = "Rider";
   var selectedGender = "Male";
   var isLoading = false.obs;

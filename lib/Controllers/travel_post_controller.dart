@@ -12,7 +12,7 @@ class TravelPostController extends GetxController {
   late TextEditingController? dropoffController;
   late TextEditingController? passengersController;
   final String baseUrl = "https://localhost/flutter/ihike";
-  final String externalUrl = "http://192.168.1.5/ihike";
+  final String externalUrl = "http://192.168.1.97/flutter/ihike";
   final storage = const FlutterSecureStorage();
 
   final dateTimeController = Get.put(DateTimeController());

@@ -4,7 +4,8 @@ import 'dart:convert';
 
 class FetchTravelsController extends GetxController {
   final String baseUrl = "https://localhost/flutter/ihike";
-  final String externalUrl = "http://192.168.1.5/ihike";
+
+  final String externalUrl = "http://192.168.1.97/flutter/ihike";
 
   Future<List<Map<String, dynamic>>> fetchTravels(String role) async {
     final response = await http.get(

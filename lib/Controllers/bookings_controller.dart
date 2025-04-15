@@ -11,7 +11,8 @@ class BookingsController extends GetxController {
       dropoffController,
       passengersController;
   final String baseUrl = "https://localhost/flutter/ihike";
-  final String externalUrl = "http://192.168.1.5/ihike";
+
+  final String externalUrl = "http://192.168.1.97/flutter/ihike";
   final storage = FlutterSecureStorage();
   var groupedBookings = <String, List<Map<String, dynamic>>>{}.obs;
   // var travelId = 0.obs;
@@ -85,7 +86,8 @@ class BookingsController extends GetxController {
     }
   }
 
-  Future<void> createBooking(String? travel_id, String? pickup, String? dropoff, String? passengers) async {
+  Future<void> createBooking(String? travel_id, String? pickup, String? dropoff,
+      String? passengers) async {
     String? user_id = await storage.read(key: "user_id");
     // String? travel_id = await storage.read(key: "travel_identity");
 

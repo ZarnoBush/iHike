@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hike/Jwt/auth_controller.dart';
 
 class LoginController extends GetxController {
+  
   late TextEditingController phoneNumberController, passwordController;
   final _authService = AuthService();
   final storage = const FlutterSecureStorage();
@@ -84,8 +85,8 @@ class LoginController extends GetxController {
       user_id.value = int.parse(id!);
       fullName.value = name ?? "";
       role.value = storedRole ?? ""; // ✅ Ensure role updates before navigation
-      
-
+       // ✅ Initialize FCM token and send it to the backend
+      await _authService.initializeFCM(id);
       isAuthenticated.value = true; // ✅ Set authentication flag
       if (storedRole == "Driver") {
         Get.toNamed("/driver_home_page");
