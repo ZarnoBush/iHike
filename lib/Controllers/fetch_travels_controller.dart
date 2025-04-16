@@ -9,7 +9,7 @@ class FetchTravelsController extends GetxController {
 
   Future<List<Map<String, dynamic>>> fetchTravels(String role) async {
     final response = await http.get(
-      Uri.parse("$externalUrl/fetch_travels.php?role=$role"),
+      Uri.parse("$baseUrl/fetch_travels.php?role=$role"),
       headers: {"Content-Type": "application/x-www-form-urlencoded"},
     );
 

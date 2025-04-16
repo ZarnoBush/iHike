@@ -65,6 +65,7 @@ class RiderLoginPage extends StatelessWidget {
                   controller: loginController.phoneNumberController,
                   isPassword: false,
                   textHolder: 'Phone Number',
+                  iconData: Icons.phone_android_rounded,
                 ),
                 SizedBox(
                   height: 10,
@@ -73,6 +74,7 @@ class RiderLoginPage extends StatelessWidget {
                   controller: loginController.passwordController,
                   isPassword: true,
                   textHolder: 'Password',
+                  iconData: Icons.lock,
                 ),
                 SizedBox(
                   height: 10,

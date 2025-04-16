@@ -86,7 +86,7 @@ class LoginController extends GetxController {
       fullName.value = name ?? "";
       role.value = storedRole ?? ""; // ✅ Ensure role updates before navigation
        // ✅ Initialize FCM token and send it to the backend
-      await _authService.initializeFCM(id);
+      // await _authService.initializeFCM(id);
       isAuthenticated.value = true; // ✅ Set authentication flag
       if (storedRole == "Driver") {
         Get.toNamed("/driver_home_page");

@@ -185,7 +185,8 @@ class CustomTextField extends StatelessWidget {
   String? textHolder;
   TextEditingController? controller;
   bool? isPassword;
-  CustomTextField({this.textHolder, this.controller, this.isPassword});
+  IconData? iconData;
+  CustomTextField({this.textHolder, this.controller, this.isPassword, this.iconData});
 
   @override
   Widget build(BuildContext context) {
@@ -197,6 +198,10 @@ class CustomTextField extends StatelessWidget {
         obscureText: isPassword!,
         decoration: InputDecoration(
             labelText: textHolder,
+            suffixIcon: Icon(
+              iconData,
+              color: Colors.black,
+            ),
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
             )),

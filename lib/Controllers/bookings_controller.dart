@@ -11,7 +11,6 @@ class BookingsController extends GetxController {
       dropoffController,
       passengersController;
   final String baseUrl = "https://localhost/flutter/ihike";
-
   final String externalUrl = "http://192.168.1.97/flutter/ihike";
   final storage = FlutterSecureStorage();
   var groupedBookings = <String, List<Map<String, dynamic>>>{}.obs;
@@ -51,7 +50,7 @@ class BookingsController extends GetxController {
     }
 
     final response = await http.get(
-      Uri.parse("$externalUrl/fetch_bookings.php?scheduler_id=$schedulerId"),
+      Uri.parse("$baseUrl/fetch_bookings.php?scheduler_id=$schedulerId"),
       headers: {
         "Content-Type": "applicati on/x-www-form-urlencoded",
       },

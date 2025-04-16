@@ -12,7 +12,7 @@ class UpdateBookingStatusController extends GetxController {
 
     try {
       var response = await http.post(
-        Uri.parse('$externalUrl/booking_status_update.php'),
+        Uri.parse('$baseUrl/booking_status_update.php'),
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },

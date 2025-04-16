@@ -53,7 +53,7 @@ class RegistrationController extends GetxController {
 
   Future<void> registerUser() async {
     isLoading.value = true;
-    var url = Uri.parse('$externalUrl/signin.php');
+    var url = Uri.parse('$baseUrl/signin.php');
 
     var response = await http.post(url, body: {
       'fullname': fullnameController.text,

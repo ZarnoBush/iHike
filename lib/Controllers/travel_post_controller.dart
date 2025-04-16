@@ -38,7 +38,7 @@ class TravelPostController extends GetxController {
     }
 
     final response =
-        await http.post(Uri.parse("$externalUrl/post_travels.php"), headers: {
+        await http.post(Uri.parse("$baseUrl/post_travels.php"), headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     }, body: {
       "user_id": user_id,

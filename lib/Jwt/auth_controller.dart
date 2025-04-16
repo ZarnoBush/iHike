@@ -12,7 +12,7 @@ class AuthService {
 
   Future<String?> login(String contact, String password) async {
     final response = await http.post(
-      Uri.parse("$externalUrl/login.php"),
+      Uri.parse("$baseUrl/login.php"),
       headers: {"Content-Type": "application/x-www-form-urlencoded"},
       body: {"contact": contact, "password": password},
     );
@@ -35,7 +35,7 @@ class AuthService {
     return null;
   }
 
-  void initializeFCM(String userId) async {
+  Future<void> initializeFCM(String userId) async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     await messaging.requestPermission();
 
@@ -44,7 +44,7 @@ class AuthService {
       print("FCM Token: $token");
 
       await http.post(
-        Uri.parse("http://192.168.1.97/flutter/ihike/save_fcm_token.php"),
+        Uri.parse("http://localhost/flutter/ihike/save_fcm_token.php"),
         body: {
           "user_id": userId,
           "fcm_token": token,
